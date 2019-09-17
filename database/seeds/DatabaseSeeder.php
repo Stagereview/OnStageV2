@@ -21,12 +21,13 @@ class DatabaseSeeder extends Seeder
 
         // Create an admin account
         DB::table('users')->insert([
-            'userRole' => '2',
-            'firstName' => 'admin',
-            'lastName' => 'admin',
-            'studentNumber' => '12345678',
+            'user_role' => '2',
+            'first_name' => 'admin',
+            'last_name' => 'admin',
+            'student_number' => '12345678',
             'email' => '12345678@mydavinci.nl',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'email_verified_at' => now(),
         ]);
 
         // Fill the database with random users.
