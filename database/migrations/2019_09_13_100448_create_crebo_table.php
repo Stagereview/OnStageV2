@@ -15,7 +15,7 @@ class CreateCreboTable extends Migration
     {
         Schema::create('crebo', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('creboNumber');
+            $table->string('crebo_number');
             $table->string('name');
         });
     }

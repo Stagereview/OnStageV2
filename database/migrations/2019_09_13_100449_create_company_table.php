@@ -17,8 +17,8 @@ class CreateCompanyTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('street');
-            $table->string('city');
-            $table->string('zipCode');
+            $table->string('city', 6);
+            $table->string('zip_code');
             $table->string('logo');
             $table->timestamps();
         });

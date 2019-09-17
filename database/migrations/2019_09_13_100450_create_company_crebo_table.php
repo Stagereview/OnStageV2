@@ -14,15 +14,15 @@ class CreateCompanyCreboTable extends Migration
     public function up()
     {
         Schema::create('company_crebo', function (Blueprint $table) {
-            $table->unsignedBigInteger('companyId')->unsigned();
-            $table->unsignedBigInteger('creboId')->unsigned();
+            $table->unsignedBigInteger('company_id')->unsigned();
+            $table->unsignedBigInteger('crebo_id')->unsigned();
         });
 
         Schema::table('company_crebo', function(Blueprint $table) {
-            $table->foreign('companyId')
+            $table->foreign('company_id')
             ->references('id')
             ->on('company');
-            $table->foreign('creboId')
+            $table->foreign('crebo_id')
             ->references('id')
             ->on('crebo');
         }); 
