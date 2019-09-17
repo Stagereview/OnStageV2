@@ -11,7 +11,9 @@
                             Dashboard
                         </div>
                         <div class="col-sm-6">
-                            <button style="float:right">Wijzigen</button> {{--  style: float right --}}
+                            <a href="{{ route('editDashboard', Auth::user()->id) }}">
+                                <button style="float:right">Wijzigen</button> {{--  style: float right --}}
+                            </a>
                         </div>
                     </div>
                 </div>
