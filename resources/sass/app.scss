@@ -4,9 +4,8 @@
 // Variables
 @import 'variables';
 
-.invalid-feedback {
-    display: block !important;
-}
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Company
+@import 'company';
