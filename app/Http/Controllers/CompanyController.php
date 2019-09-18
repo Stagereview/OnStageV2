@@ -16,7 +16,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::all();
+        $companies = Company::paginate(10);
+        
         return view('company.index', ['companies' => $companies]);
     }
 
@@ -46,6 +47,8 @@ class CompanyController extends Controller
         $company->zip_code = request('zip_code');
         $company->logo = request()->file('logo')->store('public/images');
         $company->save();
+
+        return redirect('/company/' . $company->id);
     }
 
     /**

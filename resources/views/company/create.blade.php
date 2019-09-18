@@ -13,41 +13,38 @@
 				</div>
 				@endif
 					<h1 class="text">Voeg een bedrijf toe:</h1>
-					{{ Form::open(['action' => "CompanyController@create", 'method' => 'POST', 'files' => true])}}
-					<p>(*) betekent dat dit veld ingevuld moet worden.</p>
-					<div class="form-group-row">
-						{{ Form::label('name', 'Naam*', ['class' => 'col-sm-3 col-form-label', 'required'])}}
-						<div class="col-sm-9">
-							{{ Form::text('name', '', ['class' => 'form-control', 'required'])}}
+					<p >(*) betekent dat dit veld ingevuld moet worden.</p>
+					<div class="card">
+						<div class="card-body">
+								{{ Form::open(['action' => "CompanyController@create", 'method' => 'POST', 'files' => true])}}
+								<div class="form-group-row">
+									{{ Form::label('name', 'Naam *', ['class' => 'col-form-label', 'required'])}}
+									{{ Form::text('name', '', ['class' => 'form-control', 'required'])}}
+								</div>
+								<div class="form-group-row">
+									{{ Form::label('street', 'Straat *', ['class' => 'col-form-label', 'required'])}}
+									{{ Form::text('street', '', ['class' => 'form-control', 'required'])}}
+								</div>
+								<div class="form-group-row">
+									{{ Form::label('city', 'Stad *', ['class' => 'col-form-label', 'required'])}}
+									{{ Form::text('city', '', ['class' => 'form-control', 'required'])}}
+								</div>
+								<div class="form-group-row">
+									{{ Form::label('zip_code', 'Postcode *', ['class' => 'col-form-label', 'required'])}}
+									{{ Form::text('zip_code', '', ['class' => 'form-control', 'required'])}}
+								</div>
+								<div class="form-group-row">
+									{{ Form::label('logo', 'Logo *', ['class' => 'col-form-label', 'required'])}}
+									{{ Form::file('logo', ['class' => '', 'required'])}}
+								</div>
+								<div class="submit">
+									{{ Form::submit('Toevoegen', ['class' => 'btn btn-primary form-submit-btn'])}}
+									{{ Form::close()}}
+								</div>
 						</div>
-					</div>
-					<div class="form-group-row">
-						{{ Form::label('street', 'Straat*', ['class' => 'col-sm-3 col-form-label', 'required'])}}
-						<div class="col-sm-9">
-							{{ Form::text('street', '', ['class' => 'form-control', 'required'])}}
-						</div>
-					</div>
-					<div class="form-group-row">
-						{{ Form::label('city', 'Stad*', ['class' => 'col-sm-3 col-form-label', 'required'])}}
-						<div class="col-sm-9">
-							{{ Form::text('city', '', ['class' => 'form-control', 'required'])}}
-						</div>
-					</div>
-					<div class="form-group-row">
-						{{ Form::label('zip_code', 'Postcode*', ['class' => 'col-sm-3 col-form-label', 'required'])}}
-						<div class="col-sm-9">
-							{{ Form::text('zip_code', '', ['class' => 'form-control', 'required'])}}
-						</div>
-					</div>
-					<div class="form-group-row">
-						{{ Form::label('logo', 'Logo *', ['class' => 'col-sm-3 col-form-label', 'required'])}}
-						<div class="col-sm-9">
-							{{ Form::file('logo', ['class' => '', 'required'])}}
-						</div>
-					</div>
-					{{ Form::submit('Toevoegen', ['class' => 'btn btn-primary'])}}
-					{{ Form::close()}}
-			</div>
+						
+				</div>
+		</div>
 	</div>
 </div>
 @endsection

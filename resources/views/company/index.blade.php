@@ -9,22 +9,19 @@
             <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
                 <div class="card w-100">
                     <a class="mx-auto" href="{{ action('CompanyController@show', ['id' => $company->id]) }}">
-                        {{-- <img src="{{ asset('images/' . $c->imgPath) }}" class="card-img-top"> --}}
+                        <img src="{{ Storage::url($company->logo)}}" class="card-img-top">
                     </a>
                     <div class="card-body border-top border-secondary">
-                        <a href="{{ action('ProductController@show', ['id' => $product->id]) }}">
-                            <h2 class="card-title text-center">{{ $company->name }}</h2>
+                        <a href="{{ action('CompanyController@show', ['id' => $company->id]) }}">
+                            <h2 class="card-title">{{ $company->name }}</h2>
                         </a>
-                        <p class="card-text text-center">{{ $company->description }}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <span class="text-muted">€{{ $company->price }}</span>
+                        <p class="card-text">{{ $company->street }}</p>
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
-        <div class="row justify-content-center">
+        <div class="company-paginator">
             {{ $companies->links() }}
         </div>
     </div>
