@@ -38,7 +38,7 @@
 									{{ Form::file('logo', ['class' => '', 'required'])}}
 								</div>
 								<div class="submit">
-									{{ Form::submit('Toevoegen', ['class' => 'btn btn-primary form-submit-btn'])}}
+									{{ Form::submit('Toevoegen', ['class' => 'btn btn-primary mt-2'])}}
 									{{ Form::close()}}
 								</div>
 						</div>
