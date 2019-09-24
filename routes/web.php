@@ -20,15 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // user dashboard
-Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
 Route::get('/dashboard/{id}/edit', 'HomeController@edit')->name('editDashboard')->middleware('auth');
 Route::post('/dashboard/{id}', 'HomeController@update')->name('postDashboard');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
 
 // Company
 
-Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
 Route::get('/company/create', 'CompanyController@create')->name('company.create')->middleware('auth');
-Route::get('/company/{company}', 'CompanyController@show')->name('company.show')->middleware('auth');
 Route::post('/company/create', 'CompanyController@store');
-
-
+Route::get('/company/{company}', 'CompanyController@show')->name('company.show')->middleware('auth');
+Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
