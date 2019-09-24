@@ -1,9 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-.invalid-feedback {
-  display: block !important;
-}
-
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10646,5 +10642,13 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.form-submit-btn {
+  margin-top: 10px;
+}
+
+.invalid-feedback {
+  display: block !important;
 }
 
