@@ -10644,10 +10644,6 @@ a.text-dark:focus {
   }
 }
 
-.form-submit-btn {
-  margin-top: 10px;
-}
-
 .invalid-feedback {
   display: block !important;
 }
