@@ -18,5 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 // user dashboard
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/dashboard/{id}/edit', 'HomeController@edit')->name('editDashboard');
+Route::post('/dashboard/{id}', 'HomeController@update')->name('postDashboard');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard')->middleware('auth');
+Route::get('/dashboard/{id}/edit', 'HomeController@edit')->name('editDashboard')->middleware('auth');
