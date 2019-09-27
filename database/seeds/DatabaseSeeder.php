@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Fill the database with random users.
-        factory(App\User::class, 50)->create()->each(function ($user) {});
+        Factory(App\User::class, 50)->create()->each(function ($user) {});
+        // Fill the database with random companies
+        Factory(App\Company::class, 10)->create();
     }
 }
