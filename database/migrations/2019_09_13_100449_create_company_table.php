@@ -19,7 +19,7 @@ class CreateCompanyTable extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('zip_code');
-            $table->string('logo');
+            $table->string('logo')->default('public/storage/images/placeholder.png');
             $table->timestamps();
         });
     }
