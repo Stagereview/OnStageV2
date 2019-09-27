@@ -34,8 +34,8 @@
 									{{ Form::text('zip_code', '', ['class' => 'form-control', 'required'])}}
 								</div>
 								<div class="form-group-row">
-									{{ Form::label('logo', 'Logo *', ['class' => 'col-form-label', 'required'])}}
-									{{ Form::file('logo', ['class' => '', 'required'])}}
+									{{ Form::label('logo', 'Logo', ['class' => 'col-form-label'])}}
+									{{ Form::file('logo')}}
 								</div>
 								<div class="submit">
 									{{ Form::submit('Toevoegen', ['class' => 'btn btn-primary mt-2'])}}
