@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row justify-content-between mb-3">
+<div>
     <div class="container">
         <h1 class="text-center">Alle bedrijven</h1>
         <div class="row">
