@@ -49358,6 +49358,25 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
+}); // console.log('lel')
+// var c = document.getElementById("company-search");
+// c.onkeyup = function(e){
+//     if(e.keyCode == 13){
+//     alert(c);
+//     }
+// }
+// alert("je moeder");
+//     console.log("kek")
+// }); 
+
+var c = document.getElementById('company-search');
+c.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    //checks whether the pressed key is "Enter"
+    if (e.target.value != "") {
+      window.location.href = "/company/search/" + e.target.value;
+    }
+  }
 });
 
 /***/ }),
