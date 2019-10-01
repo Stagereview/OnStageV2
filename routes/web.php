@@ -27,10 +27,3 @@ Route::post('/company/create', 'CompanyController@store');
 Route::get('/company/{company}', 'CompanyController@show')->name('company.show')->middleware('auth');
 Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
 Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search')->middleware('auth');
-// Route::any('/search',function(){
-//     $q = Input::get ( 'q' );
-//     $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
-//     if(count($user) > 0)
-//         return view('welcome')->withDetails($user)->withQuery ( $q );
-//     else return view ('welcome')->withMessage('No Details found. Try to search again !');
-// });

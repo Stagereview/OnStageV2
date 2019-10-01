@@ -102,14 +102,8 @@ class CompanyController extends Controller
         $companies = [];
         $companies = Company::where('name','LIKE','%'.$company.'%')->orWhere('street','LIKE','%'.$company.'%')->orWhere('zip_code','LIKE','%'.$company.'%')->paginate(10);
         if(count($companies) > 0){
-            // var_dump($companies);
-            // exit;
             return view('company.index', ['companies' => $companies]);
         }
-        // $companies = Company::paginate(10);
-        return redirect('/ ');
-        // return view('company.index', ['companies' => $companies]);
-
-       
-    }//return view ('welcome')->withMessage('No Details found. Try to search again !');
+        return redirect('/');
+    }
 }
