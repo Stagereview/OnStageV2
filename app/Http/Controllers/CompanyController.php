@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Company;
-use App\Form;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
 
 class CompanyController extends Controller
 {
+    /**
+     * Force user to be logged in before accessing any user information
+     */
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,22 +44,21 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCompanyRequest $request)
+    public function store(CreateCompanyRequest $request, Company $company)
     {
         $company = new Company;
 
         $company->name = request('name');
         $company->street = request('street');
+        $company->housenumber = request('housenumber');
         $company->city = request('city');
         $company->zip_code = request('zip_code');
-        if(!$company->logo) {
-            $company->logo = 'public/images/placeholder.png';
-        } else {
-            $company->logo = request()->file('logo')->store('public/images/');
+        if($company->logo) {
+             $company->logo = request()->file('logo')->store('public/images/');
         }
         $company->save();
 
-        return redirect('/company/' . $company->id);
+        return redirect()->action('CompanyController@show', $company->id)->with('success', 'Uw bedrijf is succesvol toegevoegd');
     }
 
     /**
@@ -97,6 +103,6 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        return redirect('/');
     }
 }
