@@ -49359,6 +49359,14 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+var c = document.getElementById('company-search');
+c.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    if (e.target.value != "") {
+      window.location.href = "/company/search/" + e.target.value;
+    }
+  }
+});
 
 /***/ }),
 
@@ -49494,8 +49502,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\OnStageV2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\OnStageV2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\projects\davinci\ye3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\projects\davinci\ye3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
