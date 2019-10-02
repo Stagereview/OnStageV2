@@ -13,7 +13,7 @@ class CompanyController extends Controller
      */
 
     public function __construct() {
-        $this->middleware('auth');
+        
     }
 
     /**
@@ -35,6 +35,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
+        $this->middleware('auth');
+
         return view('company.create');
     }
 
@@ -46,6 +48,8 @@ class CompanyController extends Controller
      */
     public function store(CreateCompanyRequest $request, Company $company)
     {
+        $this->middleware('auth');
+        
         $company = new Company;
 
         $company->name = request('name');
@@ -92,7 +96,7 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        $this->middleware('auth');
     }
 
     /**
