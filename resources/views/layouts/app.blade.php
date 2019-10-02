@@ -50,6 +50,12 @@
                         @else
                             
                             <li class="nav-item">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="company" id="company-search"
+                                            placeholder="Zoek bedrijven"> <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                            <li class="nav-item">
                                 <a href="{{ route('company.create') }}" class="nav-link">Nieuw bedrijf</a>
                             </li>
 
