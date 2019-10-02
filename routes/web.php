@@ -22,8 +22,6 @@ Route::resource('users', 'UserController')->except([
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
 
 // Company
-Route::get('/company/create', 'CompanyController@create')->name('company.create')->middleware('auth');
-Route::post('/company/create', 'CompanyController@store');
-Route::get('/company/{company}', 'CompanyController@show')->name('company.show')->middleware('auth');
-Route::get('/companies', 'CompanyController@index')->name('company.index')->middleware('auth');
-Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search')->middleware('auth');
+Route::resource('company', 'CompanyController');
+
+Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search')
