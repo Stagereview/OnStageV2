@@ -105,4 +105,15 @@ class CompanyController extends Controller
     {
         return redirect('/');
     }
+
+    public function search($company)
+    {
+
+        $companies = [];
+        $companies = Company::where('name','LIKE','%'.$company.'%')->orWhere('street','LIKE','%'.$company.'%')->orWhere('zip_code','LIKE','%'.$company.'%')->paginate(10);
+        if(count($companies) > 0){
+            return view('company.index', ['companies' => $companies]);
+        }
+        return redirect('/');
+    }
 }
