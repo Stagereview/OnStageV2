@@ -15,16 +15,15 @@ class CreateReviews extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id')->default('1');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('company_id')->default('1');
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->unsignedInteger('user_id')->default('1');                   // create user_id column
+            $table->foreign('user_id')->references('id')->on('users');          // set user_id
+            $table->unsignedBigInteger('company_id')->default('1');             // create company_id column
+            $table->foreign('company_id')->references('id')->on('company');     // set company_id
             $table->string('title');                                            // titel review
             $table->timestamp('start_date');                                    // startdate internship
             $table->timestamp('end_date');                                      // einddate internship
             $table->tinyInteger('rating');                                      // rating between 0 en 10
             $table->string('role');                                             // your role in the company
-            $table->string('skills');                                           // skills-tags
             $table->string('type');                                             // exploratory-/graduate internship
             $table->string('details');                                          // describe your internship
             $table->timestamps();
