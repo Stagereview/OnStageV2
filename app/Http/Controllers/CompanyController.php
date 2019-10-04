@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Company;
-use App\Form;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
@@ -11,13 +10,21 @@ use App\Http\Requests\UpdateCompanyRequest;
 class CompanyController extends Controller
 {
     /**
+     * Force user to be logged in before accessing any user information
+     */
+
+    public function __construct() {
+        
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $companies = Company::paginate(10);
+        $companies = Company::paginate(9);
 
         return view('company.index', ['companies' => $companies]);
     }
@@ -29,6 +36,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
+        $this->middleware('auth');
+
         return view('company.create');
     }
 
@@ -38,18 +47,23 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateCompanyRequest $request)
+    public function store(CreateCompanyRequest $request, Company $company)
     {
+        $this->middleware('auth');
+        
         $company = new Company;
 
         $company->name = request('name');
         $company->street = request('street');
+        $company->housenumber = request('housenumber');
         $company->city = request('city');
         $company->zip_code = request('zip_code');
-        $company->logo = request()->file('logo')->store('public/images');
+        if($company->logo) {
+             $company->logo = request()->file('logo')->store('public/images/');
+        }
         $company->save();
 
-        return redirect('/company/' . $company->id);
+        return redirect()->action('CompanyController@show', $company->id)->with('success', 'Uw bedrijf is succesvol toegevoegd');
     }
 
     /**
@@ -83,6 +97,7 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
+
         $company->name = request('name');
         $company->street = request('street');
         $company->city = request('city');
@@ -93,6 +108,9 @@ class CompanyController extends Controller
         $company->save();
 
         return redirect('/company/' . $company->id);
+
+        $this->middleware('auth');
+
     }
 
     /**
@@ -103,6 +121,17 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        return redirect('/');
+    }
+
+    public function search($company)
+    {
+
+        $companies = [];
+        $companies = Company::where('name','LIKE','%'.$company.'%')->orWhere('street','LIKE','%'.$company.'%')->orWhere('zip_code','LIKE','%'.$company.'%')->paginate(10);
+        if(count($companies) > 0){
+            return view('company.index', ['companies' => $companies]);
+        }
+        return redirect('/');
     }
 }

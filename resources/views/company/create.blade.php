@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+		<div class="row justify-content-center">
+        <div class="col-md-8">
 				@if ($errors->any())
 				<div class="alert alert-danger">
 					<ul>
@@ -12,38 +13,67 @@
 					</ul>
 				</div>
 				@endif
-					<h1 class="text">Voeg een bedrijf toe:</h1>
-					<p >(*) betekent dat dit veld ingevuld moet worden.</p>
 					<div class="card">
-						<div class="card-body">
-								{{ Form::open(['action' => "CompanyController@create", 'method' => 'POST', 'files' => true])}}
-								<div class="form-group-row">
-									{{ Form::label('name', 'Naam *', ['class' => 'col-form-label', 'required'])}}
-									{{ Form::text('name', '', ['class' => 'form-control', 'required'])}}
-								</div>
-								<div class="form-group-row">
-									{{ Form::label('street', 'Straat *', ['class' => 'col-form-label', 'required'])}}
-									{{ Form::text('street', '', ['class' => 'form-control', 'required'])}}
-								</div>
-								<div class="form-group-row">
-									{{ Form::label('city', 'Stad *', ['class' => 'col-form-label', 'required'])}}
-									{{ Form::text('city', '', ['class' => 'form-control', 'required'])}}
-								</div>
-								<div class="form-group-row">
-									{{ Form::label('zip_code', 'Postcode *', ['class' => 'col-form-label', 'required'])}}
-									{{ Form::text('zip_code', '', ['class' => 'form-control', 'required'])}}
-								</div>
-								<div class="form-group-row">
-									{{ Form::label('logo', 'Logo *', ['class' => 'col-form-label', 'required'])}}
-									{{ Form::file('logo', ['class' => '', 'required'])}}
-								</div>
-								<div class="submit">
-									{{ Form::submit('Toevoegen', ['class' => 'btn btn-primary mt-2'])}}
-									{{ Form::close()}}
-								</div>
+						<div class="card-header">
+							Voeg een bedrijf toe:
 						</div>
-						
-				</div>
+						<div class="card-body">
+								<p>(*) betekent dat dit veld ingevuld moet worden.</p>
+								<form action="{{ action('CompanyController@store') }}" method="post">
+									@csrf
+								<div class="form-group row">
+									<label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Naam: *') }}</label>
+		
+									<div class="col-md-6">
+										<input placeholder="Naam" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+									</div>
+								</div>
+								<div class="form-group row">
+										<label for="street" class="col-md-3 col-form-label text-md-right">{{ __('Straat & Hnmr: *') }}</label>
+										<div class="col-md-4">
+											<input placeholder="Straat" id="street" type="text" class="form-control" name="street" value="{{ old('street') }}" required autocomplete="street" autofocus>
+										</div>
+										<div class="col-md-2">
+											<input min="0" placeholder="Hnmr" id="housenumber" type="number" class="form-control" name="housenumber" value="{{ old('housenumber') }}" required autocomplete="housenumber" autofocus>
+										</div>                        
+									</div>
+								<div class="form-group row">
+									<label for="city" class="col-md-3 col-form-label text-md-right">{{ __('Stad: *') }}</label>
+		
+									<div class="col-md-6">
+										<input placeholder="Stad" id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="zip_code" class="col-md-3 col-form-label text-md-right">{{ __('Postcode: *') }}</label>
+		
+									<div class="col-md-6">
+										<input placeholder="Postcode" id="zip_code" type="text" class="form-control" name="zip_code" value="{{ old('zip_code') }}" required autocomplete="zip_code" autofocus>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="logo" class="col-md-3 col-form-label text-md-right">{{ __('Logo:') }}</label>
+
+									<div class="col-md-6">
+											<div class="input-group">
+													<div class="custom-file">
+													<input id="logo" type="file" name="logo" value="{{ old('logo') }}" autocomplete="logo" autofocus class="custom-file-input"
+														aria-describedby="inputGroupFileAddon01">
+													  <label class="custom-file-label" for="inputGroupFile01">Kies uw logo</label>
+													</div>
+											</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label text-md-right"></label>
+									<div class="col-md-8">
+										<button class="btn btn-primary" type="submit">Toevoegen</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+			</div>
 		</div>
 	</div>
 </div>
