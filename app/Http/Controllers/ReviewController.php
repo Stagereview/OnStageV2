@@ -24,7 +24,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        return view('review.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $review = new Review;
+
+        $review->title = request('title');
+        $review->rating = request('rating');
+        $review->role = request('role');
+        $review->type = request('type');
+        $review->details = request('details');
+        $review->save();
+
+        echo 'works';
     }
 
     /**
