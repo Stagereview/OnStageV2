@@ -17,9 +17,10 @@ class CreateCompanyTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('street');
+            $table->string('housenumber');
             $table->string('city');
             $table->string('zip_code');
-            $table->string('logo');
+            $table->string('logo')->default('public/images/placeholder.png');
             $table->timestamps();
         });
     }

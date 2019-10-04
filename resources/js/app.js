@@ -30,3 +30,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+    const c = document.getElementById('company-search');
+     c.addEventListener("keydown", function (e) {
+                                    if (e.keyCode === 13) { 
+                                        if(e.target.value != ""){
+                                            window.location.href = "/company/search/"+e.target.value;
+                                        }
+                                    }
+                                }); 

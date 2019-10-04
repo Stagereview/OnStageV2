@@ -1,23 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="row justify-content-between mb-3">
     <div class="container">
-        <div class="card">
-            <img src="{{ Storage::url($company->logo)}}" alt="Company logo">
+            @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+        <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+                <img style="width: 100%; height: 100%;" src="{{ Storage::url($company->logo)}}" alt="Company logo">
+          </div>
+          <div class="col-md-8">
             <div class="card-body">
-            <h1 class="card-title">{{ $company->name }}</h1>
-            <div class="company-details">
-                <ul>
-                    <li>{{ $company->street }}</li>
-                    <li>{{ $company->city }}</li>
-                    <li>{{ $company->zip_code }}</li>
-                </ul>
+              <h4 class="card-title">{{ $company->name }}</h4>
+              <p class="card-text">Bedrijfsdetails:</p>
+              <div class="company-details">
+                    <ul>
+                        <li>{{ $company->street }} {{ $company->housenumber }}</li>
+                        <li>{{ $company->city }}</li>
+                        <li>{{ $company->zip_code }}</li>
+                    </ul>
+                </div>
             </div>
-            </div>
+          </div>
         </div>
-    </div>
-</div>
-
+      </div>
+</div
 @endsection
