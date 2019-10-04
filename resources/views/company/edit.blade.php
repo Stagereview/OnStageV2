@@ -16,6 +16,7 @@
 							<div class="row">
 								<div class="col">
 									<form action="{{ action('CompanyController@update', $company->id) }}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+									@method('PUT')
 									@csrf
                                     <input type="hidden" name="id" value="{{ $company->id }}">
 									<div class="row">

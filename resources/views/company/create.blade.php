@@ -22,14 +22,14 @@
 								<form action="{{ action('CompanyController@store') }}" method="post">
 									@csrf
 								<div class="form-group row">
-									<label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Naam: *') }}</label>
+									<label for="name" class="col-md-3 col-form-label font-weight-bold text-md-right">{{ __('Naam: *') }}</label>
 		
 									<div class="col-md-6">
 										<input placeholder="Naam" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 									</div>
 								</div>
 								<div class="form-group row">
-										<label for="street" class="col-md-3 col-form-label text-md-right">{{ __('Straat & Hnmr: *') }}</label>
+										<label for="street" class="col-md-3 col-form-label font-weight-bold text-md-right">{{ __('Straat & Hnmr: *') }}</label>
 										<div class="col-md-4">
 											<input placeholder="Straat" id="street" type="text" class="form-control" name="street" value="{{ old('street') }}" required autocomplete="street" autofocus>
 										</div>
@@ -38,21 +38,21 @@
 										</div>                        
 									</div>
 								<div class="form-group row">
-									<label for="city" class="col-md-3 col-form-label text-md-right">{{ __('Stad: *') }}</label>
+									<label for="city" class="col-md-3 col-form-label font-weight-bold text-md-right">{{ __('Stad: *') }}</label>
 		
 									<div class="col-md-6">
 										<input placeholder="Stad" id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label for="zip_code" class="col-md-3 col-form-label text-md-right">{{ __('Postcode: *') }}</label>
+									<label for="zip_code" class="col-md-3 col-form-label font-weight-bold text-md-right">{{ __('Postcode: *') }}</label>
 		
 									<div class="col-md-6">
 										<input placeholder="Postcode" id="zip_code" type="text" class="form-control" name="zip_code" value="{{ old('zip_code') }}" required autocomplete="zip_code" autofocus>
 									</div>
 								</div>
 								<div class="form-group row">
-									<label for="logo" class="col-md-3 col-form-label text-md-right">{{ __('Logo:') }}</label>
+									<label for="logo" class="col-md-3 col-form-label font-weight-bold text-md-right">{{ __('Logo:') }}</label>
 
 									<div class="col-md-6">
 											<div class="input-group">
@@ -65,7 +65,7 @@
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-md-3 col-form-label text-md-right"></label>
+									<label class="col-md-3 col-form-label font-weight-bold text-md-right"></label>
 									<div class="col-md-8">
 										<button class="btn btn-primary" type="submit">Toevoegen</button>
 									</div>

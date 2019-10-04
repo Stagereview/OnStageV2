@@ -14,6 +14,7 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
+              <a href="{{ route('company.edit', ['id' => $company->id]) }}" class="btn btn-warning float-right">Wijzigen</a> 
               <h4 class="card-title">{{ $company->name }}</h4>
               <p class="card-text">Bedrijfsdetails:</p>
               <div class="company-details">

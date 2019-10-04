@@ -110,7 +110,6 @@ class CompanyController extends Controller
         return redirect('/company/' . $company->id);
 
         $this->middleware('auth');
-
     }
 
     /**

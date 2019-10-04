@@ -29,13 +29,12 @@
 								</div>
                                 <div class="form-group row">
                                         <label for="details" class="col-md-3 col-form-label font-weight-bold">{{ __('Details: *') }}</label>
-    
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                    <textarea placeholder="Licht hier jouw ervaring toe tijdens je stage." class="form-control" rows="3"></textarea>
+													<textarea placeholder="Licht hier jouw ervaring toe tijdens je stage." class="form-control" rows="3"></textarea>
                                             </div>
                                         </div>
-                                    </div>
+									</div>
 								<div class="form-group row">
 									<label for="role" class="col-md-3 col-form-label font-weight-bold">{{ __('Role: *') }}</label>
                                     
@@ -60,7 +59,7 @@
                                     <div class="col-md-2">
                                         <input min="1" max="10" id="rating" type="number" class="form-control" name="rating" value="{{ old('rating') }}" required autocomplete="street" autofocus>
                                     </div>                       
-                                </div>
+								</div>
                                 <div class="form-group row">
                                     <div class="col-md-8">
                                         <button class="btn btn-primary" type="submit">Toevoegen</button>

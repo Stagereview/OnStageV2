@@ -25,7 +25,7 @@ class CreateReviews extends Migration
             $table->tinyInteger('rating');                                      // rating between 0 en 10
             $table->string('role');                                             // your role in the company                                        // skills-tags
             $table->string('type');                                             // exploratory-/graduate internship
-            $table->string('details');                                          // describe your internship
+            $table->string('details', 255);                                     // describe your internship
             $table->timestamps();
         });
     }
