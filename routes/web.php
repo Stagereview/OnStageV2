@@ -25,3 +25,4 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middle
 Route::resource('company', 'CompanyController');
 
 Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search')
+
