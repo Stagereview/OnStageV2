@@ -28,3 +28,4 @@ Route::get('/company/search/{company}', 'CompanyController@search')->name('compa
 
 // Reviews
 Route::resource('review', 'ReviewController');
+Route::get('/review/create/{id}', 'ReviewController@create')->name('review.create');
