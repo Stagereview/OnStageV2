@@ -27,7 +27,7 @@ class CreateReviewRequest extends FormRequest
             'title' => 'required|min:1|max:191',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'rating' => 'required|min:1|max:10',
+            'rating' => 'required|min:1|max:5',
             'role' => 'required|min:1|max:191',
             'type' => 'required|min:1|max:1',
             'details' => 'required|min:1|max:255'

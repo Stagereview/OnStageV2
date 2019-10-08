@@ -54,6 +54,8 @@ class ReviewController extends Controller
         $review->details = request('details');
     
         $review->save();
+
+        return redirect()->action('ReviewController@show', $review->id)->with('success', 'Uw review is succesvol toegevoegd');
     }
 
     /**

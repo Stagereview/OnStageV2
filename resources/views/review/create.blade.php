@@ -68,7 +68,7 @@
                                 <div class="form-group row">
                                     <label for="street" class="col-md-3 col-form-label font-weight-bold">{{ __('Rating: *') }}</label>           
                                     <div class="col-md-1">
-                                        <input min="1" max="10" id="rating" type="number" class="form-control" name="rating" value="{{ old('rating') }}" required autocomplete="rating" autofocus>
+                                        <input min="1" max="5" id="rating" type="number" class="form-control" name="rating" value="{{ old('rating') }}" required autocomplete="rating" autofocus>
                                     </div>                       
                                 </div>
                                 <div class="form-group row">
