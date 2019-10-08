@@ -36,5 +36,7 @@ class DatabaseSeeder extends Seeder
         Factory(App\User::class, 50)->create()->each(function ($user) {});
         // Fill the database with random companies
         Factory(App\Company::class, 10)->create();
+        // Fill the database with random reviews
+        Factory(App\Review::class, 10)->create();
     }
 }

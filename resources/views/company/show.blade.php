@@ -14,7 +14,9 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
+                <a class="btn btn-primary float-right" href="{{ action('CompanyController@edit', $company->id)}}">Wijzigen</a>
               <h4 class="card-title">{{ $company->name }}</h4>
+             
               <p class="card-text">Bedrijfsdetails:</p>
               <div class="company-details">
                     <ul>
@@ -23,6 +25,7 @@
                         <li>{{ $company->zip_code }}</li>
                     </ul>
                 </div>
+                <a class="btn btn-primary" href="{{ action('ReviewController@create', $company->id) }}">Nieuwe Review</a>
             </div>
           </div>
         </div>
