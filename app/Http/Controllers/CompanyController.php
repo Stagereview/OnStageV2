@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -24,7 +25,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::paginate(9);
-        
+
         return view('company.index', ['companies' => $companies]);
     }
 
@@ -84,7 +85,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        //
+        return view('company.edit', ['company' => $company]);
     }
 
     /**
@@ -94,9 +95,22 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(UpdateCompanyRequest $request, Company $company)
     {
+
+        $company->name = request('name');
+        $company->street = request('street');
+        $company->city = request('city');
+        $company->zip_code = request('zip_code');
+        if($request->hasFile('logo')) {
+            $company->logo = request()->file('logo')->store('public/images');
+        }
+        $company->save();
+
+        return redirect('/company/' . $company->id);
+
         $this->middleware('auth');
+
     }
 
     /**
