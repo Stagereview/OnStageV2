@@ -24,5 +24,5 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middle
 // Company
 Route::resource('company', 'CompanyController');
 
-Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search')
+Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search');
 
