@@ -23,7 +23,7 @@ class CreateReviews extends Migration
             $table->timestamp('start_date')->nullable();                        // startdate internship
             $table->timestamp('end_date')->nullable();                          // einddate internship
             $table->tinyInteger('rating');                                      // rating between 0 en 10
-            $table->string('role');                                             // your role in the company                                        // skills-tags
+            $table->string('role');                                             // your role in the company
             $table->string('type');                                             // exploratory-/graduate internship
             $table->string('details');                                          // describe your internship
             $table->timestamps();
