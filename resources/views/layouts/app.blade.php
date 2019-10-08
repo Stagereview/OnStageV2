@@ -39,6 +39,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                        <li class="nav-item">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="company" id="company-search"
+                                    placeholder="Zoek bedrijven"> <span class="input-group-btn">
+                                </span>
+                            </div>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
