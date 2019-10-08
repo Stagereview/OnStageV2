@@ -97,6 +97,7 @@ class CompanyController extends Controller
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
+        $this->middleware('auth');
 
         $company->name = request('name');
         $company->street = request('street');
@@ -108,9 +109,6 @@ class CompanyController extends Controller
         $company->save();
 
         return redirect('/company/' . $company->id);
-
-        $this->middleware('auth');
-
     }
 
     /**
