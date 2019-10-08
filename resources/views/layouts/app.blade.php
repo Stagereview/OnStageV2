@@ -39,6 +39,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                        <li class="nav-item">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="company" id="company-search"
+                                    placeholder="Zoek bedrijven"> <span class="input-group-btn">
+                                </span>
+                            </div>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -65,7 +71,10 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ action('UserController@show', Auth::user()->id) }}">{{ __('Profiel') }}</a>
+                                    @if(Auth::user()->user_role == 2)
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ action('UserController@show', Auth::user()->id) }}">{{ __('Mijn profiel') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
