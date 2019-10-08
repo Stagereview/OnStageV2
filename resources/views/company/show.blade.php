@@ -77,7 +77,12 @@
 		</div>
     @else 
         <div class="col">
-            <p>Dit bedrijf heeft nog geen reviews, wees de eerste!</p>
+			<div class="card">
+				<div class="card-body">
+					<p class="card-text">Dit bedrijf heeft nog geen reviews, <a href="{{ action('ReviewController@create', $company->id) }}">wees de eerste</a>!</p>
+				</div>
+			</div>
+            
 		</div>
 	@endif
 	</div>

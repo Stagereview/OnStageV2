@@ -28,6 +28,7 @@ class Review extends Model
     public static function getReviews($companyId) {
 
         $review = DB::table('reviews')
+                        ->where('company_id', $companyId)
                         ->select(   'reviews.id as review_id',
                                     'reviews.title',
                                     'reviews.rating',
@@ -39,7 +40,12 @@ class Review extends Model
                         ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
                         ->orderBy('reviews.created_at', 'desc')
                         ->paginate(6);
-                        
+        
+        // $review = Review::where('company_id', $companyId)
+        //     ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
+        //     ->orderBy('reviews.created_at', 'desc')
+        //     ->paginate(10);
+
         return $review;
     }
 }
