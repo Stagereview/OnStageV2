@@ -40,12 +40,7 @@ class Review extends Model
                         ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
                         ->orderBy('reviews.created_at', 'desc')
                         ->paginate(6);
-        
-        // $review = Review::where('company_id', $companyId)
-        //     ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
-        //     ->orderBy('reviews.created_at', 'desc')
-        //     ->paginate(10);
-
+                        
         return $review;
     }
 }
