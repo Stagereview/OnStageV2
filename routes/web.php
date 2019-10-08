@@ -27,7 +27,4 @@ Route::resource('company', 'CompanyController');
 
 Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search');
 
-<<<<<<< HEAD
 Route::fallback('CompanyController@index');
-=======
->>>>>>> e6ee7e7396a9d77b749bffacc3d157e1b654e828

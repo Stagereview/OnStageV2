@@ -23,12 +23,13 @@
 										<div class="list-group list-group-flush">
 											<a href="#" class="list-group-item">Gebruikers aanpassen</a>
 											<a href="#" class="list-group-item">Bedrijven aanpassen</a>
-											<a href="#" class="list-group-item">Reviews aanpassen</a>
+                                            <a href="#" class="list-group-item">Reviews aanpassen</a>
+                                            <a href="#" class="list-group-item">Crebonummers bekijken</a>
 										</div>
 									</div>
 								</div>
                             </div>
-                            <div class="col-12 col-md-4">
+                            {{-- <div class="col-12 col-md-4">
 								<div class="card">
 									<div class="card-header bg-dark text-white">
 										Admin log
@@ -55,7 +56,7 @@
 										</ul>
 									</div>
 								</div>
-							</div>
+							</div> --}}
                         </div>
                     </div>
                 </div>
