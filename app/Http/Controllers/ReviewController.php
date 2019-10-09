@@ -67,7 +67,9 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        return view('review.show', ['review' => $review]);
+        $review = Review::getReview($review->id);
+
+        return view('review.show', ['reviews' => $review]);
     }
 
     /**

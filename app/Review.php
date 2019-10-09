@@ -43,4 +43,31 @@ class Review extends Model
                         
         return $review;
     }
+
+     /**
+     * Get review for one company
+     *
+     * @param  \App\Company $review
+     * @return \Illuminate\Http\Response
+     */
+    public static function getReview($review_id) {
+
+        $review = DB::table('reviews')
+                        ->where('reviews.id', $review_id)
+                        ->select(   'reviews.id as review_id',
+                                    'reviews.title',
+                                    'reviews.rating',
+                                    'reviews.role',
+                                    'reviews.type',
+                                    'reviews.details',
+                                    'reviews.start_date',
+                                    'reviews.end_date',
+                                    'users.first_name',
+                                    'users.last_name')
+                        ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
+                        ->orderBy('reviews.created_at', 'desc')
+                        ->get();
+                        
+        return $review;
+    }
 }
