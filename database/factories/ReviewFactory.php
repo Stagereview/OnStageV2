@@ -10,7 +10,7 @@ $factory->define(Review::class, function (Faker $faker) {
         'title' => $faker->name,
         'start_date' => now(),
         'end_date' => now(),
-        'rating' => $faker->numberBetween($min = '1', $max = '10'),
+        'rating' => $faker->numberBetween($min = '1', $max = '5'),
         'role' => $faker->jobTitle,
         'type' => 'oriënterende-/afstudeerstage',
         'details' => $faker->text($maxNbChars = 191)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Review;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
@@ -74,7 +75,9 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        return view('company.show', ['company' => $company]);
+        $reviews = Review::getReviews($company->id);
+
+        return view('company.show', ['company' => $company, 'reviews' => $reviews]);
     }
 
     /**
