@@ -28,19 +28,20 @@ class CompanyController extends Controller
     {
         $companies = Company::paginate(9);
 
-        return view('company.index', ['companies' => $companies]);
+        return view('company.index', ['companies' => $companies, 'crum' => 'home']);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Company $company)
     {
         $this->middleware('auth');
 
-        return view('company.create');
+        return view('company.create', ['crum' => 'create-company', 'crum2' => $company]);
     }
 
     /**
@@ -79,7 +80,7 @@ class CompanyController extends Controller
         $reviews = Review::getReviews($company->id);
         $contacts = Contact::getContacts($company->id);
 
-        return view('company.show', ['company' => $company, 'reviews' => $reviews, 'contacts' => $contacts]);
+        return view('company.show', ['company' => $company, 'reviews' => $reviews, 'contacts' => $contacts, 'crum' => 'company', 'crum2' => $company]);
     }
 
     /**
@@ -90,7 +91,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('company.edit', ['company' => $company]);
+        return view('company.edit', ['company' => $company, 'crum' => 'edit-company', 'crum2' => $company]);
     }
 
     /**
@@ -133,7 +134,7 @@ class CompanyController extends Controller
         $companies = [];
         $companies = Company::where('name','LIKE','%'.$company.'%')->orWhere('street','LIKE','%'.$company.'%')->orWhere('zip_code','LIKE','%'.$company.'%')->paginate(10);
         if(count($companies) > 0){
-            return view('company.index', ['companies' => $companies]);
+            return view('company.index', ['companies' => $companies, 'crum' => 'search', 'crum2' => $company]);
         }
         return redirect('/');
     }
