@@ -65,7 +65,7 @@ class UserController extends Controller
             $user = Auth::user();
         endif;
 
-        return view('user.show', ['user' => $user]);
+        return view('user.show', ['user' => $user, 'crum' => 'user', 'crum2' => $user]);
     }
 
     /**
@@ -81,7 +81,7 @@ class UserController extends Controller
             $user = Auth::user();
         endif;
         
-        return view('user.edit', ['user' => $user]);
+        return view('user.edit', ['user' => $user, 'crum' => 'edit-user', 'crum2' => $user]);
     }
 
     /**

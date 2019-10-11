@@ -55,6 +55,7 @@ class Review extends Model
         $review = DB::table('reviews')
                         ->where('reviews.id', $review_id)
                         ->select(   'reviews.id as review_id',
+                                    'reviews.company_id',
                                     'reviews.title',
                                     'reviews.rating',
                                     'reviews.role',
