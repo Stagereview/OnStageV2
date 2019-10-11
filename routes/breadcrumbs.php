@@ -1,5 +1,5 @@
 <?php
-// // Home > Blog
+// // doe hier je tree
 // Breadcrumbs::for([name in template render], function ($trail) {
 //     $trail->parent([the parent]);
 //     $trail->push([name on the site], route([route in web.php]));
@@ -58,21 +58,3 @@ Breadcrumbs::for('edit-user', function ($trail, $user) {
     $trail->parent('user', $user);
     $trail->push('Edit', route('users.edit', $user->id));
 });
-
-// // Home > Blog
-// Breadcrumbs::for('blog', function ($trail) {
-//     $trail->parent('home');
-//     $trail->push('Blog', route('blog'));
-// });
-
-// // Home > Blog > [Category]
-// Breadcrumbs::for('category', function ($trail, $category) {
-//     $trail->parent('blog');
-//     $trail->push($category->title, route('category', $category->id));
-// });
-
-// // Home > Blog > [Category] > [Post]
-// Breadcrumbs::for('post', function ($trail, $post) {
-//     $trail->parent('category', $post->category);
-//     $trail->push($post->title, route('post', $post->id));
-// });
