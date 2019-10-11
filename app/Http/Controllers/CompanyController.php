@@ -27,7 +27,7 @@ class CompanyController extends Controller
     {
         $companies = Company::paginate(9);
 
-        return view('company.index', ['companies' => $companies]);
+        return view('company.index', ['companies' => $companies, 'crum' => 'home']);
     }
 
     /**
@@ -77,7 +77,7 @@ class CompanyController extends Controller
     {
         $reviews = Review::getReviews($company->id);
 
-        return view('company.show', ['company' => $company, 'reviews' => $reviews]);
+        return view('company.show', ['company' => $company, 'reviews' => $reviews, 'crum' => 'company', 'crum2' => $company]);
     }
 
     /**
