@@ -29,9 +29,10 @@ class ReviewController extends Controller
     public function create(Request $request)
     {
         $companyid = $request->id;
-
-        return view('review.create', ['companyid' => $companyid]);
-    }
+        $companies = Company::where('id', $companyid)->first();
+        // exit($request);  
+        return view('review.create', ['companyid' => $companyid, 'crum' => 'new-review', 'crum2' => $companies]);
+    }//,  'crum' => 'edit-user', 'crum2' => $user
 
     /**
      * Store a newly created resource in storage.
@@ -68,8 +69,9 @@ class ReviewController extends Controller
     public function show(Review $review)
     {
         $review = Review::getReview($review->id);
-
-        return view('review.show', ['reviews' => $review]);
+        $companies = Company::where('id', $review[0]->company_id)->first();
+        
+        return view('review.show', ['reviews' => $review, 'crum' => 'review', 'crum2' => $companies]);
     }
 
     /**
