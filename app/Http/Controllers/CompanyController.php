@@ -33,6 +33,7 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
     public function create(Company $company)

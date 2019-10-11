@@ -29,10 +29,9 @@ class ReviewController extends Controller
     public function create(Request $request)
     {
         $companyid = $request->id;
-        $companies = Company::where('id', $companyid)->first();
-        // exit($request);  
+        $companies = Company::where('id', $companyid)->first();  
         return view('review.create', ['companyid' => $companyid, 'crum' => 'new-review', 'crum2' => $companies]);
-    }//,  'crum' => 'edit-user', 'crum2' => $user
+    }
 
     /**
      * Store a newly created resource in storage.
