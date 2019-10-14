@@ -15,7 +15,8 @@
                         <a href="{{ action('CompanyController@show', ['id' => $company->id]) }}">
                             <h2 class="card-title">{{ $company->name }}</h2>
                         </a>
-                        <p class="card-text">{{ $company->street }}</p>
+                          <p class="card-text">{{ $company->street }} <i class="fa fa-map-marker" aria-hidden="true"></i></p>
+                    
                     </div>
                 </div>
             </div>

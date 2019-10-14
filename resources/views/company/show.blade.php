@@ -33,8 +33,25 @@
 						</div>
 					</div>
 				</div>
+				<div id="accordion" class="card-footer">
+					<div class="card">
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+								Locatie:
+								</button>
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body">
+						<div value="{{$company->housenumber}} {{$company->zip_code}} {{$company->city}}" style="height:480px;width:100%;" id="mapContainer"></div>
+					</div>
+				  </div>
 			</div>
 		</div>
+		
 		<div class="col-12 col-md-6">
 			<div class="card">
 				<div class="card-body">
