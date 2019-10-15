@@ -29,12 +29,12 @@
 									</div>
 								</div>
 								<div class="form-group row">
-										<label for="street" class="col-md-3 col-form-label text-md-right">{{ __('Straat & Hnmr: *') }}</label>
+										<label for="street" class="col-md-3 col-form-label text-md-right">{{ __('Straat & Nummer *') }}</label>
 										<div class="col-md-4">
 											<input placeholder="Straat" id="street" type="text" class="form-control" name="street" value="{{ old('street') }}" required autocomplete="street" autofocus>
 										</div>
 										<div class="col-md-2">
-											<input min="0" placeholder="Hnmr" id="housenumber" type="number" class="form-control" name="housenumber" value="{{ old('housenumber') }}" required autocomplete="housenumber" autofocus>
+											<input min="0" placeholder="Nmr" id="housenumber" type="number" class="form-control" name="housenumber" value="{{ old('housenumber') }}" required autocomplete="housenumber" autofocus>
 										</div>                        
 									</div>
 								<div class="form-group row">

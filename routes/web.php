@@ -19,10 +19,17 @@ Auth::routes();
 Route::resource('users', 'UserController')->except([
     'create', 'store'
 ]);
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard')->middleware('auth');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Company
 Route::resource('company', 'CompanyController');
 
-Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search')
+Route::get('/company/search/{company}', 'CompanyController@search')->name('company.search');
 
+// Reviews
+Route::resource('review', 'ReviewController');
+Route::get('/review/create/{id}', 'ReviewController@create')->name('review.create');
+
+// Fallback
+Route::fallback('CompanyController@index');
