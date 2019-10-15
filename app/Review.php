@@ -35,6 +35,7 @@ class Review extends Model
                                     'reviews.role',
                                     'reviews.type',
                                     'reviews.details',
+                                    'reviews.created_at',
                                     'users.first_name',
                                     'users.last_name')
                         ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
