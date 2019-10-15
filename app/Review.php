@@ -35,6 +35,8 @@ class Review extends Model
                                     'reviews.role',
                                     'reviews.type',
                                     'reviews.details',
+                                    'reviews.start_date',
+                                    'reviews.end_date',
                                     'reviews.created_at',
                                     'users.first_name',
                                     'users.last_name')
