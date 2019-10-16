@@ -7,6 +7,7 @@ use App\Review;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
+use Auth;
 
 class CompanyController extends Controller
 {
@@ -55,6 +56,7 @@ class CompanyController extends Controller
         
         $company = new Company;
 
+        $company->user_id = Auth::id();
         $company->name = request('name');
         $company->street = request('street');
         $company->housenumber = request('housenumber');
