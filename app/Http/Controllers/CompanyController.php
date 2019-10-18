@@ -107,6 +107,7 @@ class CompanyController extends Controller
 
         $company->name = request('name');
         $company->street = request('street');
+        $company->housenumber = request('housenumber');
         $company->city = request('city');
         $company->zip_code = request('zip_code');
         if($request->hasFile('logo')) {
