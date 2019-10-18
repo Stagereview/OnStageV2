@@ -74,7 +74,7 @@
 													<img src="{{ Storage::url($company->logo)}}" alt="Company logo" class="img-fluid" height="400px">
 													<small class="form-text text-muted">{{ __('Indien u het logo niet wilt veranderen, selecteert u er geen') }}.</small>
 													<div class="custom-file">
-														<input type="file" class="custom-file-input" id="logo">
+														<input name="logo" type="file" class="custom-file-input" id="logo">
 														<label class="custom-file-label" for="logo">{{ __('Kies logo') }}...</label>
 														@error('logo')
 															<div class="invalid-feedback">{{ $message }}</div>
