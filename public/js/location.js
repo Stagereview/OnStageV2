@@ -1,37 +1,3 @@
-// let platform = new H.service.Platform({
-// apikey: 'IbwPXY9b0orrOR2WdJJ22nEAaAINeT-Z-AFpP5v3L0U'
-// });
-
-// // Obtain the default map types from the platform object:
-// let defaultLayers = platform.createDefaultLayers();
-
-// // Instantiate (and display) a map object:
-// let map = new H.Map(
-//     document.getElementById('mapContainer'),
-//     defaultLayers.vector.normal.map,
-//     {
-//         zoom: 10,
-//         center: { lat: 51.813297, lng: 4.690093 }
-//     }
-// );
-
-// // Enable the event system on the map instance:
-// let mapEvents = new H.mapevents.MapEvents(map);
-
-// // Add event listener:
-// map.addEventListener('tap', function(evt) {
-//     // Log 'tap' and 'mouse' events:
-//     console.log(evt.type, evt.currentPointer.type);
-// });
-
-// // Instantiate the default behavior, providing the mapEvents object:
-// let behavior = new H.mapevents.Behavior(mapEvents);
-
-// // Initiates the UI controls of the map
-// let ui = H.ui.UI.createDefault(map, defaultLayers, 'nl-NL');
-
-// Working Map
-
 /**
  * Calculates and displays the address details based on a free-form text
  *
@@ -61,15 +27,14 @@ function geocode(platform) {
  * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-type-response-geocode.html
  */
 function onSuccess(result) {
-    var locations = result.response.view[0].result;
+    let locations = result.response.view[0].result;
+
     /*
      * The styling of the geocoding response on the map is entirely under the developer's control.
      * A representitive styling can be found the full JS + HTML code of this example
      * in the functions below:
      */
     addLocationsToMap(locations);
-    // addLocationsToPanel(locations);
-    // ... etc.
 }
 
 /**
@@ -92,7 +57,7 @@ let platform = new H.service.Platform({
 
 let defaultLayers = platform.createDefaultLayers();
 
-// Initializes the map
+// Step 2: Initialize the map
 
 let map = new H.Map(
     document.getElementById('mapContainer'),
@@ -100,14 +65,14 @@ let map = new H.Map(
     {
         center: { lat: 0, lng: 0 },
         zoom: 15,
-        pixelRatio: window.devicePixelRatio
+        pixelRatio: window.devicePixelRatio || 1
     }
 );
 
 // Add a resize listener to make sure that the map occupies the whole container
 window.addEventListener('resize', () => map.getViewPort().resize());
 
-//Step 3: Make the map interactive
+// Step 3: Make the map interactive
 // MapEvents enables the event system
 // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
 
