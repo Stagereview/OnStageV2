@@ -19,7 +19,10 @@
 					</div>
 					<div class="col-sm-8">
 						<div class="card-body">
-							<a class="btn btn-primary float-right" href="{{ action('CompanyController@edit', $company->id)}}">Wijzigen</a>
+							@if (Auth::id() == $company->user_id)
+								<a class="btn btn-primary float-right" href="{{ action('CompanyController@edit', $company->id)}}">Wijzigen</a>
+							@endif
+							
 							<h4 class="card-title">{{ $company->name }}</h4>
 						
 							<p class="card-text">Bedrijfsdetails:</p>
