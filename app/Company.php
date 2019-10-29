@@ -17,4 +17,8 @@ class Company extends Model
     {
         return $this->hasMany('App\Contact');
     }
+    public function users() 
+    {
+        return $this->belongsTo('App\User');
+    }
 }

@@ -8,6 +8,7 @@ use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
+use Auth;
 
 class CompanyController extends Controller
 {
@@ -56,6 +57,7 @@ class CompanyController extends Controller
         
         $company = new Company;
 
+        $company->user_id = Auth::id();
         $company->name = request('name');
         $company->street = request('street');
         $company->housenumber = request('housenumber');
@@ -107,6 +109,7 @@ class CompanyController extends Controller
 
         $company->name = request('name');
         $company->street = request('street');
+        $company->housenumber = request('housenumber');
         $company->city = request('city');
         $company->zip_code = request('zip_code');
         if($request->hasFile('logo')) {

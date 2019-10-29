@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- {{ dd($reviews) }} --}}
 <div class="container mb-5">
     @if (session('success'))
     <div class="alert alert-success" role="alert">
@@ -19,7 +18,10 @@
 					</div>
 					<div class="col-sm-8">
 						<div class="card-body">
-							<a class="btn btn-primary float-right" href="{{ action('CompanyController@edit', $company->id)}}">Wijzigen</a>
+							@if (Auth::id() == $company->user_id)
+								<a class="btn btn-primary float-right" href="{{ action('CompanyController@edit', $company->id)}}">Wijzigen</a>
+							@endif
+							
 							<h4 class="card-title">{{ $company->name }}</h4>
 						
 							<p class="card-text">Bedrijfsdetails:</p>
@@ -33,16 +35,35 @@
 						</div>
 					</div>
 				</div>
+				<div id="accordion" class="card-footer">
+					<div class="card">
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+								Locatie:
+								</button>
+							</h5>
+						</div>
+					</div>
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body">
+						<div value="{{$company->housenumber}} {{$company->zip_code}} {{$company->city}}" style="height:480px;width:100%;" id="mapContainer"></div>
+					</div>
+				  </div>
 			</div>
 		</div>
+		
 		<div class="col-12 col-md-6">
 			<div class="card">
 				<div class="card-body">
 					<h4 class="card-title">Statistieken</h4>
 				</div>
+				@auth
 				<div class="card-footer">
 					<a class="btn btn-primary" href="{{ action('ReviewController@create', $company->id) }}">Nieuwe Review</a>
 				</div>
+				@endauth
 			</div>
 		</div>
     </div>
@@ -104,7 +125,10 @@
 			<div class="card">
 				<div class="card-body">
 					<h5 class="card-title">{{ $review->title }}</h5>
-					<h6 class="card-subtitle mb-1 text-muted">{{ $review->first_name }} {{ $review->last_name }}</h6>
+					<h6 class="card-subtitle mb-3 text-muted">{{ $review->first_name }} {{ $review->last_name }}</h6>
+					<h6 class="card-subtitle mb-2">Geplaatst op: {{ date("d-m-Y", strtotime($review->created_at)) }}</h6>
+					<h6 class="card-subtitle mb-2">Stage periode: {{ date("d-m-Y", strtotime($review->start_date)) }} tot {{ date("d-m-Y", strtotime($review->end_date)) }}</h6>
+					<h6 class="card-subtitle mb-2">Werk omschrijving: {{ $review->role }}</h6>
 					<div class="mb-1">
 						@for ($i = 1; $i < 6; $i++)
 							@if ($i <= $review->rating)
