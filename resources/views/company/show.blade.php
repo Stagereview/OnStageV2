@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- {{ dd($reviews) }} --}}
 <div class="container mb-5">
     @if (session('success'))
     <div class="alert alert-success" role="alert">
@@ -60,9 +59,11 @@
 				<div class="card-body">
 					<h4 class="card-title">Statistieken</h4>
 				</div>
+				@auth
 				<div class="card-footer">
 					<a class="btn btn-primary" href="{{ action('ReviewController@create', $company->id) }}">Nieuwe Review</a>
 				</div>
+				@endauth
 			</div>
 		</div>
     </div>
