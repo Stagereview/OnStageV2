@@ -39,7 +39,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $contact = new contact;
+        $contact = new Contact;
 
         $contact->company_id = request('company_id');
         $contact->function = request('function');
