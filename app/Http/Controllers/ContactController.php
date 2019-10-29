@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
+use App\Company;
+use App\Contact;
 
-class ContactsController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +24,11 @@ class ContactsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $companyid = $request->id;
+        $companies = Company::where('id', $companyid)->first();  
+        return view('contact.create', ['companyid' => $companyid, 'crum' => 'new-contact', 'crum2' => $companies]);
     }
 
     /**
@@ -34,7 +39,18 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact = new contact;
+
+        $contact->company_id = request('company_id');
+        $contact->function = request('function');
+        $contact->gender = request('gender');
+        $contact->name = request('name');
+        $contact->email = request('email');
+        $contact->phone_number = request('phone_number');
+    
+        $contact->save();
+
+        return redirect()->action('CompanyController@show', $request->company_id)->with('success', 'De contactpersoon is toegevoegd');
     }
 
     /**

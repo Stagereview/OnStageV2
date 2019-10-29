@@ -61,7 +61,7 @@
                     <div class="card">
                         <div class="card-header" type="button" id="heading{{ $contact->id }}" data-toggle="collapse" data-target="#collapse{{ $contact->id }}" aria-expanded="false" aria-controls="collapse{{ $contact->id }}">
                             <p class="h6 mb-0">
-                                {{ $contact->gender }} {{ $contact->first_name }} {{ $contact->last_name }} -> {{ $contact->function }}
+                                {{ $contact->gender }} {{ $contact->name }} -> {{ $contact->function }}
                             </p>
                         </div>
                         <div class="collapse" id="collapse{{ $contact->id }}" aria-labelledby="heading{{ $contact->id }}" data-parent="#contacts">
@@ -74,11 +74,16 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="card">
+                    <div class="card-body p-2">
+                        <p class="card-text"><a href="{{ action('ContactController@create', $company->id) }}">Voeg een contactpersoon toe</a>!</p>
+                    </div>
+                </div>
             </div>
             @else
             <div class="card">
                 <div class="card-body">
-                    <p class="card-text">Dit bedrijf heeft nog geen contactpersonen, <a href="{{ action('ReviewController@create', $company->id) }}">voeg een contactpersoon toe</a>!</p>
+                    <p class="card-text">Dit bedrijf heeft nog geen contactpersonen, <a href="{{ action('ContactController@create', $company->id) }}">voeg een contactpersoon toe</a>!</p>
                 </div>
             </div>
             @endif

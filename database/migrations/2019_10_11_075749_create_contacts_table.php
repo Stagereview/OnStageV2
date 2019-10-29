@@ -19,8 +19,7 @@ class CreateContactsTable extends Migration
             $table->foreign('company_id')->references('id')->on('company');
             $table->string('function');
             $table->string('gender');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('name');
             $table->string('email');
             $table->string('phone_number');
             $table->timestamps();

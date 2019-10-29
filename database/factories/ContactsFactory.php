@@ -12,8 +12,7 @@ $factory->define(Contact::class, function ($faker) {
         'company_id' => $faker->numberBetween($min = 1, $max = 10),
         'function' => $faker->jobTitle(),
         'gender' => $faker->title($gender = 'male'|'female'),
-        'first_name' => $faker->firstName($gender = 'male'|'female'),
-        'last_name' => $faker->lastName(),
+        'name' => $faker->name(),
         'email' => $faker->safeEmail(),
         'phone_number' => $faker->phoneNumber()
     ];
