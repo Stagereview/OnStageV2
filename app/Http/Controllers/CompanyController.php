@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Review;
+use App\Contact;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
@@ -63,7 +64,7 @@ class CompanyController extends Controller
         $company->city = request('city');
         $company->zip_code = request('zip_code');
         if($company->logo) {
-             $company->logo = request()->file('logo')->store('public/images/');
+             $company->logo = request()->file('logo')->store('public/images');
         }
         $company->save();
 
@@ -79,8 +80,9 @@ class CompanyController extends Controller
     public function show(Company $company)
     {
         $reviews = Review::getReviews($company->id);
+        $contacts = Contact::getContacts($company->id);
 
-        return view('company.show', ['company' => $company, 'reviews' => $reviews, 'crum' => 'company', 'crum2' => $company]);
+        return view('company.show', ['company' => $company, 'reviews' => $reviews, 'contacts' => $contacts, 'crum' => 'company', 'crum2' => $company]);
     }
 
     /**
@@ -107,6 +109,7 @@ class CompanyController extends Controller
 
         $company->name = request('name');
         $company->street = request('street');
+        $company->housenumber = request('housenumber');
         $company->city = request('city');
         $company->zip_code = request('zip_code');
         if($request->hasFile('logo')) {

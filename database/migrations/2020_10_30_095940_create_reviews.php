@@ -15,9 +15,9 @@ class CreateReviews extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id')->default('1');                   // create user_id column
+            $table->unsignedInteger('user_id');                                 // create user_id column
             $table->foreign('user_id')->references('id')->on('users');          // set user_id
-            $table->unsignedBigInteger('company_id')->default('1');             // create company_id column
+            $table->unsignedBigInteger('company_id');                           // create company_id column
             $table->foreign('company_id')->references('id')->on('company');     // set company_id
             $table->string('title');                                            // title review
             $table->timestamp('start_date')->nullable();                        // startdate internship

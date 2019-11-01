@@ -14,7 +14,7 @@ Breadcrumbs::for('home', function ($trail) {
 // Home > Search
 Breadcrumbs::for('search', function ($trail, $query) {
     $trail->parent('home');
-    $trail->push('Searching: '.$query, route('company.search', $query));
+    $trail->push('Zoeken: '.$query, route('company.search', $query));
 });
 
 // Home > [Company]
@@ -45,6 +45,12 @@ Breadcrumbs::for('review', function ($trail, $company) {
 Breadcrumbs::for('new-review', function ($trail, $company) {
     $trail->parent('company', $company);
     $trail->push('Nieuwe Review', route('review.create', $company->id));
+});
+
+// Home > [Company] > new contact
+Breadcrumbs::for('new-contact', function ($trail, $company) {
+    $trail->parent('company', $company);
+    $trail->push('Nieuwe contact', route('contact.create', $company->id));
 });
 
 // Home > [User]

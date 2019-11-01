@@ -13,6 +13,10 @@ class Company extends Model
         return $this->hasMany('App\Review');
     }
 
+    public function contacts()
+    {
+        return $this->hasMany('App\Contact');
+    }
     public function users() 
     {
         return $this->belongsTo('App\User');
