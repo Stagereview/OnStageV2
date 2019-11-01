@@ -5,7 +5,7 @@ function imgHandler(input) {
         var reader = new FileReader();
         
         reader.onload = function(e) {
-            document.getElementById("companyLogopPlaceholder").src = e.target.result;
+            document.getElementById("companyLogoPlaceholder").src = e.target.result;
         }
         
         reader.readAsDataURL(input.files[0]);
