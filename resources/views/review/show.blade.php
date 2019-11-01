@@ -21,9 +21,10 @@
                       <span class="fa fa-star checked" aria-hidden="true"></span>
                       @else 
                       <span class="fa fa-star" aria-hidden="true"></span>
-                      @endif
+                      @endif 
                     @endfor
                   </div>
+                  <p class="card-text"><label class="font-weight-bold">Contactpersoon:</label> {{ $review->contact }} {{ $review->contact_email }} {{ $review->contact_phonenumber }} </p>
                   <p class="card-text"><label class="font-weight-bold">Details:</label> {{ $review->details }}</p>
             </div>
           </div>

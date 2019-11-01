@@ -29,8 +29,11 @@ class CreateReviewRequest extends FormRequest
             'end_date' => 'required|date',
             'rating' => 'required|min:1|max:5',
             'role' => 'required|min:1|max:191',
+            'contact' => 'required|min:1|max:255|',
+            'contact_mail' => 'required|min:1|max:255',
+            'contact_phonenumber' => 'required|min:1|max:15',
             'type' => 'required|min:1|max:1',
-            'details' => 'required|min:1|max:255'
+            'details' => 'required|min:1|max:255',
         ];
     }
 }
