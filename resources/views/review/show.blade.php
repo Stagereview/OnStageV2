@@ -10,6 +10,11 @@
           @foreach ($reviews as $review)
         <div class="card">
             <div class="card-body">
+              @if (Auth::user())
+                @if (Auth::id() == $review->user_id || Auth::user()->user_role == 2)
+                  <a href="{{ action('ReviewController@edit', $review->review_id) }}" class="btn btn-primary float-right">Aanpassen</a>
+                @endif
+              @endif
                 <h1 class="card-title">{{ $review->title }}</h1>
                   <h4 class="card-subtitle mb-1 text-muted">{{ $review->first_name}} {{ $review->last_name}}</h4>
                   <p class="card-text"><label class="font-weight-bold">Datum:</label> {{ date("d-m-Y", strtotime($review->start_date)) }} - {{ date("d-m-Y", strtotime($review->end_date)) }}</p>

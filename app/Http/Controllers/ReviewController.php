@@ -82,7 +82,13 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        //
+        if(Auth::user()) {
+            if(Auth::id() == $review->user_id || Auth::user()->user_role == 2) {
+                return view('review.edit', ['review' => $review]);
+            }
+        } else {
+            return redirect('/review/' . $review->id);
+        }
     }
 
     /**
