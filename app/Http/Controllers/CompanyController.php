@@ -64,7 +64,7 @@ class CompanyController extends Controller
         $company->city = request('city');
         $company->zip_code = request('zip_code');
         if($company->logo) {
-             $company->logo = request()->file('logo')->store('public/images/');
+             $company->logo = request()->file('logo')->store('public/images');
         }
         $company->save();
 

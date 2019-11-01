@@ -79,7 +79,7 @@
 											<div class="form-group row">
                                                 <label class="col-md-3 col-form-label text-md-right required">{{ __('Logo') }}</label>
 												<div class="col-md-8">
-													<img src="{{ Storage::url($company->logo)}}" alt="Company logo" class="img-fluid" height="400px">
+													<img id="companyLogopPlaceholder" src="{{ Storage::url($company->logo)}}" alt="Company logo" class="img-fluid" height="400px">
 													<small class="form-text text-muted">{{ __('Indien u het logo niet wilt veranderen, selecteert u er geen') }}.</small>
 													<div class="custom-file">
 														<input name="logo" type="file" class="custom-file-input" id="logo">
