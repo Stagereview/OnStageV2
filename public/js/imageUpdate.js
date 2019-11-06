@@ -11,5 +11,4 @@ function imgHandler(input) {
         reader.readAsDataURL(input.files[0]);
       }
 }
-
 document.getElementById("logo").addEventListener("change", imgHandler);
