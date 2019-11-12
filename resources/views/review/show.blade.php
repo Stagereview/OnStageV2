@@ -18,6 +18,7 @@
                 <h1 class="card-title">{{ $review->title }}</h1>
                   <h4 class="card-subtitle mb-1 text-muted">{{ $review->first_name}} {{ $review->last_name}}</h4>
                   <p class="card-text"><label class="font-weight-bold">Datum:</label> {{ date("d-m-Y", strtotime($review->start_date)) }} - {{ date("d-m-Y", strtotime($review->end_date)) }}</p>
+                  <p class="card-text"><label class="font-weight-bold">Contactpersoon:</label> {{ $review->contact }}</p>
                   <p class="card-text"><label class="font-weight-bold">Type:</label> {{ $review->type }}</p>
                   <p class="card-text"><label class="font-weight-bold">Rol:</label> {{ $review->role }}</p>
                   <div class="mb-1">

@@ -17,7 +17,8 @@
                             Review aanpassen:
                         </div>
 						<div class="card-body">
-                                <form action="#" method="post">
+                                <form action="{{ action('ReviewController@update', $review->id) }}" method="post">
+                                    @method('put')
                                     @csrf
                                 <input name="company_id" type="hidden" value="">
 								<div class="form-group row">
@@ -41,7 +42,14 @@
                                     <div class="col-md-6">
 										<input placeholder="De rol die jij gehad hebt tijdens de stage." id="role" type="text" class="form-control" name="role" value="{{ $review->role }}" required autocomplete="role" autofocus>
 									</div>
-								</div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="contact" class="col-md-3 col-form-label font-weight-bold">{{ __('Contact: *') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Jouw stagebegeleider." id="contact" class="form-control" name="contact" value="{{ $review->contact }}" required autocomplete="contact" autofocus>
+                                    </div>
+                                </div>
 								<div class="form-group row">
 									<label for="type" class="col-md-3 col-form-label font-weight-bold">{{ __('Type: *') }}</label>
 		
