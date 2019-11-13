@@ -84,8 +84,8 @@
 					<h6 class="card-subtitle mb-3 text-muted">{{ $review->first_name }} {{ $review->last_name }}</h6>
 					<h6 class="card-subtitle mb-2">Geplaatst op: {{ date("d-m-Y", strtotime($review->created_at)) }}</h6>
 					<h6 class="card-subtitle mb-2">Stage periode: {{ date("d-m-Y", strtotime($review->start_date)) }} tot {{ date("d-m-Y", strtotime($review->end_date)) }}</h6>
-					<h6 class="card-subtitle mb-2">Contactpersoon: {{ $review->contact }}</h6>
 					<h6 class="card-subtitle mb-2">Werk omschrijving: {{ $review->role }}</h6>
+					<h6 class="card-subtitle mb-2">Contactpersoon: {{ $review->contact_name }}</h6>
 					<div class="mb-1">
 						@for ($i = 1; $i < 6; $i++)
 							@if ($i <= $review->rating)

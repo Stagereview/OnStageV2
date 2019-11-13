@@ -44,11 +44,16 @@
 									</div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="contact" class="col-md-3 col-form-label font-weight-bold">{{ __('Contact: *') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input type="text" placeholder="Jouw stagebegeleider." id="contact" class="form-control" name="contact" value="{{ $review->contact }}" required autocomplete="contact" autofocus>
-                                    </div>
+                                    <label class="col-md-3 col-form-label font-weight-bold">{{ __('Contactpersoon: *') }}</label>                
+                                    <div class="col-md-2">
+										<input placeholder="Contactpersoon" id="contact_name" type="text" class="form-control" name="contact_name" value="{{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
+                                    </div>        
+                                    <div class="col-md-2">
+										<input placeholder="Email" id="contact_mail" type="email" class="form-control" name="contact_email" value="{{ old('contact_email') }}" required autocomplete="contact_email" autofocus>
+                                    </div> 
+                                    <div class="col-md-2">
+                                        <input placeholder="Telefoonnummer" id="contact_phonenumber" type="text" class="form-control" name="contact_phonenumber" value="{{ old('contact_phonenumber') }}" required autocomplete="contact_phonenumber" autofocus>
+                                    </div>                   
                                 </div>
 								<div class="form-group row">
 									<label for="type" class="col-md-3 col-form-label font-weight-bold">{{ __('Type: *') }}</label>
