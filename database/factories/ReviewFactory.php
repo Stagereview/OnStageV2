@@ -15,7 +15,9 @@ $factory->define(Review::class, function (Faker $faker) {
         'rating' => $faker->numberBetween($min = '1', $max = '5'),
         'role' => $faker->jobTitle,
         'type' => 'oriënterende-/afstudeerstage',
-        'contact' => $faker->name,
-        'details' => $faker->text($maxNbChars = 191)
+        'contact_name' => $faker->name,
+        'contact_email' => $faker->email,
+        'contact_phonenumber' => $faker->phoneNumber,
+        'details' => $faker->text($maxNbChars = 191),
     ];
 });

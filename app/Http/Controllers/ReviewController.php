@@ -49,6 +49,9 @@ class ReviewController extends Controller
         $review->title = request('title');
         $review->rating = request('rating');
         $review->role = request('role');
+        $review->contact_name = request('contact_name');
+        $review->contact_email = request('contact_email');
+        $review->contact_phonenumber = request('contact_phonenumber');
         $review->type = request('type');
         $review->start_date =  request('start_date');
         $review->end_date = request('end_date');

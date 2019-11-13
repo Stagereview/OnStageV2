@@ -66,6 +66,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-md-3 col-form-label font-weight-bold">{{ __('Contactpersoon: *') }}</label>                
+                                    <div class="col-md-2">
+										<input placeholder="Contactpersoon" id="contact_name" type="text" class="form-control" name="contact_name" value="{{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
+                                    </div>        
+                                    <div class="col-md-2">
+										<input placeholder="Email" id="contact_mail" type="email" class="form-control" name="contact_email" value="{{ old('contact_email') }}" required autocomplete="contact_email" autofocus>
+                                    </div> 
+                                    <div class="col-md-2">
+                                        <input placeholder="Telefoonnummer" id="contact_phonenumber" type="text" class="form-control" name="contact_phonenumber" value="{{ old('contact_phonenumber') }}" required autocomplete="contact_phonenumber" autofocus>
+                                    </div>                   
+                                </div>
+                                <div class="form-group row">
                                     <label for="street" class="col-md-3 col-form-label font-weight-bold">{{ __('Rating: *') }}</label>           
                                     <div class="col-md-1">
                                         <input min="1" max="5" id="rating" type="number" class="form-control" name="rating" value="{{ old('rating') }}" required autocomplete="rating" autofocus>
