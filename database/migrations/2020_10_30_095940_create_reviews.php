@@ -24,7 +24,7 @@ class CreateReviews extends Migration
             $table->timestamp('end_date')->nullable();                          // einddate internship
             $table->tinyInteger('rating');                                      // rating between 0 en 10
             $table->string('role');                                             // your role in the company
-            $table->string('contact');                                          // contact
+            $table->string('contact_name');                                     // contact name
             $table->string('contact_email');                                    // contact mail
             $table->string('contact_phonenumber');                              // contact phonenumber
             $table->string('type');                                             // exploratory-/graduate internship

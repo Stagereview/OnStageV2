@@ -66,6 +66,9 @@ class Review extends Model
                                     'reviews.details',
                                     'reviews.start_date',
                                     'reviews.end_date',
+                                    'reviews.contact_name',
+                                    'reviews.contact_email',
+                                    'reviews.contact_phonenumber',
                                     'users.first_name',
                                     'users.last_name')
                         ->leftJoin('users', 'reviews.user_id', '=', 'users.id')

@@ -49,7 +49,7 @@ class ReviewController extends Controller
         $review->title = request('title');
         $review->rating = request('rating');
         $review->role = request('role');
-        $review->contact = request('contact');
+        $review->contact_name = request('contact_name');
         $review->contact_email = request('contact_email');
         $review->contact_phonenumber = request('contact_phonenumber');
         $review->type = request('type');

@@ -68,7 +68,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label font-weight-bold">{{ __('Contactpersoon: *') }}</label>                
                                     <div class="col-md-2">
-										<input placeholder="Contactpersoon" id="contact" type="text" class="form-control" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
+										<input placeholder="Contactpersoon" id="contact_name" type="text" class="form-control" name="contact_name" value="{{ old('contact_name') }}" required autocomplete="contact_name" autofocus>
                                     </div>        
                                     <div class="col-md-2">
 										<input placeholder="Email" id="contact_mail" type="email" class="form-control" name="contact_email" value="{{ old('contact_email') }}" required autocomplete="contact_email" autofocus>

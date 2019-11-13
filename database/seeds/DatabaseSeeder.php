@@ -31,14 +31,11 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
         // Fill the database with random users.
         Factory(App\User::class, 50)->create()->each(function ($user) {});
         // Fill the database with random companies
         Factory(App\Company::class, 10)->create();
         // Fill the database with random reviews
         Factory(App\Review::class, 10)->create();
-        // Fill the database with random contacts
-        Factory(App\Contact::class, 10)->create();
     }
 }
